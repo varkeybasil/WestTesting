@@ -1,4 +1,5 @@
 ﻿using System;
+using West.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +8,22 @@ namespace West
 {
     public partial class App : Application
     {
+        public static string DatabasePath;
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+        }
+
+        public App(string databasePath)
+        {
+            InitializeComponent();
+
+            DatabasePath = databasePath;
+
+           
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

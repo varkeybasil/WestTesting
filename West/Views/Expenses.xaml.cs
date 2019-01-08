@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using West.ViewModels;
 using Xamarin.Forms;
 
 namespace West.Views
@@ -11,5 +11,7 @@ namespace West.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

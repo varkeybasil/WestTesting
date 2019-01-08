@@ -1,5 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="West.Views.Expenses">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+              xmlns:viewModels="clr-namespace:West.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="West.Views.Expenses">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <viewModels:ExpensesViewModel x:Key="ExpensesViewModel"/>
+            </ResourceDictionary>
+            
+        </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:ExpensesViewModel/>
+        </ContentPage.BindingContext>
     <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <Entry Placeholder="Item" Text="{Binding Item}"></Entry>
+            <Entry Placeholder="Amount" Text="{Binding Amount}"></Entry>
+            <Button Text="Add" BackgroundColor="Olive" Command="{Binding AddCommand}">
+                </Button>
+            </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

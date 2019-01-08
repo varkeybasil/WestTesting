@@ -1,5 +1,30 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="West.Views.Categories">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:West.ViewModels" x:Class="West.Views.Categories">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewModels:CategoriesViewModel x:Key="CategoriesViewModel" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:CategoriesViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ExpensesList"
+                ItemsSource="{Binding Source={StaticResource CategoriesViewModel}, Path=ExpenseList}" CachingStrategy="RecycleElement" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand">
+                                </Label>
+                                <Label Text="{Binding Amount}" HorizontalOptions="EndAndExpand">
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

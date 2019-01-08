@@ -1,5 +1,56 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="West.Views.LoginPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:viewModels="clr-namespace:West.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="West.Views.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewModels:LoginPageViewModel x:Key="LoginPageViewModel"/>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:LoginPageViewModel/>
+        </ContentPage.BindingContext>
     <ContentPage.Content>
+      <!--  <StackLayout >
+            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Login" Command="{Binding LoginCommand}">
+                </Button>
+            <Image Source="back.jpg"  Aspect="AspectFill" HeightRequest="500" WidthRequest="500">
+                </Image>
+            </StackLayout>-->
+       
+      <!--  <AbsoluteLayout>
+            <Image Source="back.jpg" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                </Image>
+            
+                <Button HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" HeightRequest="100" WidthRequest="300" VerticalOptions="CenterAndExpand" Text="Login" TextColor="Maroon" BackgroundColor="Transparent" Command="{Binding LoginCommand}">
+                </Button>
+            </AbsoluteLayout>-->
+        
+        <AbsoluteLayout>
+
+        <Image x:Name="BgImage" Source="back.jpg"
+               Aspect="AspectFill"
+               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+               AbsoluteLayout.LayoutFlags="All"/>
+<!--
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
+
+            <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Entry Placeholder="Name" />
+                    <Entry Placeholder="Email"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>-->
+                <Button HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" HeightRequest="100" WidthRequest="300" VerticalOptions="CenterAndExpand" Text="Login" TextColor="White" BackgroundColor="Transparent" Command="{Binding LoginCommand}">
+                </Button>
+
+</AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
